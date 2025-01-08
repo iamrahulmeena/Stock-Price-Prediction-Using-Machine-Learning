@@ -27,10 +27,10 @@ The repository is organized as follows:
 This project uses data from the **NIFTY 500 index**, which represents the top 500 stocks in the Indian stock market.
 
 - 📌 **500 stocks**: Individual data for each stock.
-- 📌 **2000 trading days**: Historical data spanning multiple years.
+- 📌 **2000+ trading days**: Historical data spanning multiple years.
 - 📌 **6 features**: `Open`, `High`, `Low`, `Close`, `Volume`, and `Adjusted Close` prices.
 
-This results in approximately **5 million price ticks** being used to train the model, ensuring a robust dataset for machine learning.
+This results in approximately **5 million+ price ticks** being used to train the model, ensuring a robust dataset for machine learning.
 
 ---
 
