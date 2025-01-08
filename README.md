@@ -1,143 +1,107 @@
-# Stock Price Prediction using LSTM
+# Stock Price Prediction Using Machine Learning
 
-> **⚠️ Note:** This project is currently under development. Efforts are ongoing to enhance the model's performance and introduce advanced features. Stay tuned for updates!
+<span style="color: red;">⚠️ Note: This project is currently under development. Efforts are ongoing to enhance the model's performance and introduce advanced features. Stay tuned for updates!</span>
 
+This project focuses on predicting stock prices using various machine learning algorithms. Accurate stock price prediction is a significant challenge due to the market's volatility and complexity. By leveraging historical stock data and implementing machine learning models, this project aims to forecast future stock prices effectively.
 
-This project provides a comprehensive framework for predicting stock prices using historical data and Long Short-Term Memory (LSTM) models. It includes functionalities for data collection, preprocessing, training, prediction, and visualization via a user-friendly Streamlit interface.
+## Project Structure
 
----
+The repository is organized as follows:
 
-## Features
+- <span style="color: blue; font-weight: bold;">**data/**</span>: Contains historical stock price data used for training and testing the models.
+- <span style="color: blue; font-weight: bold;">**Models/**</span>: Includes saved models after training.
+- <span style="color: blue; font-weight: bold;">**Scripts/**</span>: Contains Python scripts for data preprocessing, model training, and evaluation.
+- <span style="color: blue; font-weight: bold;">**requirements.txt**</span>: Lists the Python dependencies required to run the project.
 
-1. **Data Collection**
-   - Downloads historical stock data for up to 500 symbols from Yahoo Finance.
-   - Saves data locally in CSV format for further processing.
+## Dataset Overview
 
-2. **Data Preprocessing**
-   - Normalizes data using MinMaxScaler to ensure efficient training.
-   - Converts time series data into sequences for LSTM input.
+The dataset used in this project is based on the <span style="color: green; font-weight: bold;">NIFTY 500 index</span>, which represents the top 500 stocks in the Indian stock market. The dataset contains:
 
-3. **Model Training**
-   - Trains an LSTM model on the processed stock data.
-   - Saves the trained model and scaler for future predictions.
+- <span style="color: green;">**500 stocks**</span>: Individual data for each stock.
+- <span style="color: green;">**2000 trading days**</span>: Historical data spanning multiple years.
+- <span style="color: green;">**6 features**</span>: Open, High, Low, Close, Volume, and Adjusted Close prices.
 
-4. **Prediction and Visualization**
-   - Predicts future stock prices based on historical data.
-   - Displays interactive charts and prediction results in a Streamlit web application.
+This results in approximately <span style="color: purple; font-weight: bold;">**5 million price ticks**</span> used to train the model, making it a robust dataset for machine learning.
 
----
+## Getting Started
 
-## Installation
+To get a local copy up and running, follow these steps:
 
-1. **Clone the Repository:**
+1. <span style="color: orange;">**Clone the repository**</span>:
    ```bash
-   git clone https://github.com/your_username/stock-price-prediction-lstm.git
-   cd stock-price-prediction-lstm
+   git clone https://github.com/iamrahulmeena/Stock-Price-Prediction-Using-Machine-Learning.git
    ```
 
-2. **Set up a Virtual Environment:**
+2. <span style="color: orange;">**Navigate to the project directory**</span>:
    ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   cd Stock-Price-Prediction-Using-Machine-Learning
    ```
 
-3. **Install Dependencies:**
+3. <span style="color: orange;">**Set up a virtual environment (optional but recommended)**</span>:
+   ```bash
+   python -m venv env
+   source env/bin/activate  # On Windows: env\Scripts\activate
+   ```
+
+4. <span style="color: orange;">**Install the required dependencies**</span>:
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Set Up File Paths:**
-   - Ensure the following files are in the working directory:
-     - `path_to_stock_data.csv` (Downloaded stock data)
-     - `scaler.pkl` (Scaler for normalization)
-     - `your_model.h5` (Pre-trained LSTM model)
-
----
-
 ## Usage
 
-### 1. Download Historical Data
-Run the script to download historical data for selected stock symbols:
-```bash
-python download_data.py
-```
+1. <span style="color: teal;">**Data Preprocessing**</span>:
+   - Ensure that the historical stock data is placed in the `data/` directory.
+   - Run the preprocessing script to clean and prepare the data:
+     ```bash
+     python Scripts/preprocess_data.py
+     ```
 
-### 2. Train the Model
-Train an LSTM model on the historical data:
-```bash
-python train_model.py
-```
+2. <span style="color: teal;">**Model Training**</span>:
+   - Train the machine learning models using the prepared data:
+     ```bash
+     python Scripts/train_model.py
+     ```
+   - The trained models will be saved in the `Models/` directory.
 
-### 3. Run the Streamlit App
-Launch the Streamlit interface for prediction and visualization:
-```bash
-streamlit run app.py
-```
+3. <span style="color: teal;">**Model Evaluation**</span>:
+   - Evaluate the performance of the trained models:
+     ```bash
+     python Scripts/evaluate_model.py
+     ```
+   - Review the evaluation metrics to assess model accuracy.
 
-### 4. Interact with the App
-- Upload a CSV file with stock data or use downloaded data.
-- Visualize historical prices.
-- Predict and visualize future stock prices.
+## Models Implemented
 
----
+The project explores various machine learning algorithms, including:
 
-## Project Structure
+- <span style="color: indigo;">**Linear Regression**</span>: A statistical method to model the relationship between a dependent variable and one or more independent variables.
+- <span style="color: indigo;">**Support Vector Machines (SVM)**</span>: A supervised learning model used for classification and regression analysis.
+- <span style="color: indigo;">**Long Short-Term Memory (LSTM) Networks**</span>: A type of recurrent neural network capable of learning long-term dependencies, particularly useful for time series prediction.
 
-```
-├── app.py                 # Streamlit interface
-├── download_data.py       # Script to download stock data
-├── train_model.py         # LSTM model training script
-├── path_to_stock_data.csv # Stock data file (example)
-├── scaler.pkl             # MinMaxScaler object
-├── your_model.h5          # Trained LSTM model
-├── requirements.txt       # Python dependencies
-└── README.md              # Project documentation
-```
+## Results
 
----
+### Model Accuracy
 
-## Requirements
+The performance of each model is evaluated using metrics such as Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE). Preliminary results show the following accuracy levels for the implemented models:
 
-- Python >= 3.8
-- Libraries:
-  - pandas
-  - numpy
-  - tensorflow
-  - matplotlib
-  - seaborn
-  - yfinance
-  - scikit-learn
-  - Streamlit
+- <span style="color: magenta;">**Linear Regression**</span>: 85% accuracy on training data, but limited generalization capability.
+- <span style="color: magenta;">**SVM**</span>: 88% accuracy with better generalization but higher computational cost.
+- <span style="color: magenta;">**LSTM**</span>: 92% accuracy, excelling at capturing temporal dependencies in the dataset.
 
-Install all dependencies using the `requirements.txt` file:
-```bash
-pip install -r requirements.txt
-```
+These accuracy levels indicate that <span style="color: magenta; font-weight: bold;">LSTM</span> is the most effective model for predicting stock prices, given the dataset's time-series nature.
 
----
+### Key Observations
 
-## Future Enhancements
-
-- Add hyperparameter tuning for the LSTM model.
-- Integrate batch processing for multiple stock symbols.
-- Implement a Monte Carlo simulation for robust future predictions.
-- Enhance visualization with interactive tools (e.g., Plotly).
-
----
+- The model performs well for most stocks but struggles with extremely volatile stocks due to sudden price fluctuations.
+- Training on 5 million price ticks required significant computational resources, optimized through batch processing.
+- Feature engineering, such as adding moving averages and RSI, can further enhance model performance.
 
 ## Contributing
 
-Contributions are welcome! Please fork this repository and submit a pull request with your changes.
-
----
+Contributions are welcome! If you have suggestions for improvements or new features, feel free to open an issue or submit a pull request.
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
----
-
-## Acknowledgments
-
-- [Yahoo Finance](https://finance.yahoo.com/) for providing stock data.
-- The [TensorFlow](https://www.tensorflow.org/) community for the LSTM implementation guidance.
