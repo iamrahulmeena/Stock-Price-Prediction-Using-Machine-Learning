@@ -19,7 +19,7 @@ MODEL_DIR = "C:/Users/hp/Desktop/work/stock-prediction-project_Main/models"
 def load_company_data():
     try:
         # Load CSV with company info
-        company_df = pd.read_csv("stocks.csv")
+        company_df = pd.read_csv(r"C:\Users\hp\Desktop\work\Stockplace\data\nifty500_symbols.csv")
         return company_df
     except FileNotFoundError:
         st.error("Company data file not found!")
